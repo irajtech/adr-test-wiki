@@ -29,6 +29,7 @@ jobs:
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
           git remote remove origin
+          echo "URL : https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           git push origin master
       - name: Gather files changed
