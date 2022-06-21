@@ -21,30 +21,30 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         env:
-          SUPER_SECRET: ${{ secrets.wiki_secret }}
+          SUPER_SECRET: ${{ secrets.WIKI_SECRET }}
         run: |
           # ls ${{ github.workspace }}
           git branch
-          # echo "Super Secret ${SUPER_SECRET}"
-          # git config --local user.email "irajtech"
-          # git config --local user.name "irajtech"
-          # git remote remove origin
-          # echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
-          # git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
-          # git push origin master
-      - uses: actions/checkout@v3
-        with:
-          repository: irajtech/adr-test.wiki.git
-          ref: 'master'
-          token:  ${{ secrets.WIKI_SECRET }}
-      - name: setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          git commit -m "hello"
+          echo "Super Secret ${SUPER_SECRET}"
+          git config --local user.email "irajtech"
+          git config --local user.name "irajtech"
           git remote remove origin
-          git remote add origin https://irajtech:${secrets.WIKI_SECRET}@github.com/irajtech/adr-test.wiki.git
-      - run: git push origin master
+          echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
+          git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
+          git push origin master
+      # - uses: actions/checkout@v3
+      #   with:
+      #     repository: irajtech/adr-test.wiki.git
+      #     ref: 'master'
+      #     token:  ${{ secrets.WIKI_SECRET }}
+      # - name: setup git config
+      #   run: |
+      #     git config user.name "GitHub Actions Bot"
+      #     git config user.email "<>"
+      #     git commit -m "hello"
+      #     git remote remove origin
+      #     git remote add origin https://irajtech:${secrets.WIKI_SECRET}@github.com/irajtech/adr-test.wiki.git
+      # - run: git push origin master
 
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
