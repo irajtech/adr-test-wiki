@@ -25,13 +25,25 @@ jobs:
         run: |
           # ls ${{ github.workspace }}
           git branch
-          echo "Super Secret ${SUPER_SECRET}"
-          git config --local user.email "irajtech"
-          git config --local user.name "irajtech"
-          git remote remove origin
-          echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
-          git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
-          git push origin master
+          # echo "Super Secret ${SUPER_SECRET}"
+          # git config --local user.email "irajtech"
+          # git config --local user.name "irajtech"
+          # git remote remove origin
+          # echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
+          # git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
+          # git push origin master
+      - uses: actions/checkout@v3
+        with:
+          repository: https://github.com/irajtech/adr-test.wiki.git
+          ref: 'master'
+          token:  ${{ secrets.WIKI_SECRET }}
+      - name: setup git config
+        run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+      - <make changes and commit >
+      - run: git push origin master
+
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
