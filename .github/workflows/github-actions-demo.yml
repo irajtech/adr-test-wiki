@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - master
+permissions:
+  pull-requests: write
+  repository-projects: write
+
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -16,12 +20,12 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
+        env:
+          SUPER_SECRET: ${{ secrets.wiki_secret }}
         run: |
           ls ${{ github.workspace }}
           git branch
-          git log
-          git remote remove origin
-          git remote add origin https://github.com/irajtech/adr-test.wiki.git
+          git remote add origin https://$SUPER_SECRET@github.com/irajtech/adr-test.wiki.git
           git push origin master
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
