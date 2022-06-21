@@ -47,8 +47,10 @@ jobs:
           git config user.email "<>"
           git remote remove origin
           git remote add origin https://github.com/irajtech/adr-test.wiki.git
+          git remote -v
           git add .
           git commit -m "hello"
+          ls ${{ github.workspace }}
           git push origin master
       - name: Push changes
         uses: ad-m/github-push-action@master
