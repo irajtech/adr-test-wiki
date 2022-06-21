@@ -18,6 +18,8 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          git branch
+          git log
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
