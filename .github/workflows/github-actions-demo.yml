@@ -25,6 +25,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
           git branch
+          git remote remove origin
           git remote add origin https://$SUPER_SECRET@github.com/irajtech/adr-test.wiki.git
           git push origin master
       - name: Gather files changed
