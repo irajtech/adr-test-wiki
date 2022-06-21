@@ -31,8 +31,8 @@ jobs:
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
           git remote remove origin
-          echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
-          git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
+          echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.git"
+          git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.git
           echo 'problem'
           git push origin master
       # - uses: actions/checkout@v3
