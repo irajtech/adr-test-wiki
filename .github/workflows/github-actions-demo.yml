@@ -7,6 +7,8 @@ on:
 permissions:
   pull-requests: write
   repository-projects: write
+  contents: write
+  packages: write
 
 jobs:
   Explore-GitHub-Actions:
