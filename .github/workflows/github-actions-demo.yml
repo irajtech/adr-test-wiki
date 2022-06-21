@@ -39,8 +39,8 @@ jobs:
           token:  ${{ secrets.WIKI_SECRET }}
       - name: setup git config
         run: |
-        git config user.name "GitHub Actions Bot"
-        git config user.email "<>"
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
       - <make changes and commit >
       - run: git push origin master
 
