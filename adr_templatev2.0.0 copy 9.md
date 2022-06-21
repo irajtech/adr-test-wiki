@@ -3,7 +3,7 @@
 **Recommendation**
 * What is the change that we're proposing and/or doing? 
 * What becomes easier or more difficult to do because of this change? ]
-It beomes great ! and amazing !
+It beomes great ! and amazing ! Lets do the review
 
 ## Details
 * Status: [proposed | rejected | accepted | deprecated]
