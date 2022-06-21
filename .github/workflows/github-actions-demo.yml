@@ -41,7 +41,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-      - <make changes and commit >
+          git commit -m "hello"
       - run: git push origin master
 
       - name: Gather files changed
