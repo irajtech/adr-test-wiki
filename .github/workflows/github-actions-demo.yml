@@ -25,13 +25,31 @@ jobs:
         run: |
           # ls ${{ github.workspace }}
           git branch
-          echo "Super Secret ${SUPER_SECRET}"
+          # echo "Super Secret ${SUPER_SECRET}"
+          # git config --local user.email "irajtech"
+          # git config --local user.name "irajtech"
+          # git remote remove origin
+          # echo "URL : https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
+          # git remote add origin https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
+          # git push origin master
+            
+      - name: Checkout REPO2
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/irajtech/adr-test.wiki.git
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Update
+        run: |
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
-          git remote remove origin
-          echo "URL : https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
-          git remote add origin https://${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
-          git push origin master
+          git commit -m "chore: my comment" -a
+      - name: Push changes on REPO2
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.wiki_secret }}
+          branch: ${{ github.ref }}
+
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
