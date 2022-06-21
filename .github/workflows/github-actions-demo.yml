@@ -47,6 +47,7 @@ jobs:
           git config user.email "<>"
           git remote remove origin
           git remote add origin https://github.com/irajtech/adr-test.wiki.git
+          git add .
           git commit -m "hello"
           git push origin master
       - name: Push changes
