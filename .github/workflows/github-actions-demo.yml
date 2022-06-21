@@ -21,10 +21,12 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: List files in the repository
         env:
-          SUPER_SECRET: ${{ secrets.wiki_secret }}
+          SUPER_SECRET: ${{ secrets.WIKI_SECRET }}
         run: |
           ls ${{ github.workspace }}
           git branch
+          git config --local user.email "irajtech"
+          git config --local user.name "irajtech"
           git remote remove origin
           git remote add origin https://$SUPER_SECRET@github.com/irajtech/adr-test.wiki.git
           git push origin master
