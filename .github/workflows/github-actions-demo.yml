@@ -34,13 +34,13 @@ jobs:
           # git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           # echo 'problem'
           # git push origin master
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 
-          repository: irajtech/adr-test-wiki
-          ref: 'master'
-          token:  ${{ secrets.WIKI_SECRET }}
+      # - uses: actions/checkout@v2
+      #   with:
+      #     persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+      #     fetch-depth: 0 
+      #     repository: irajtech/adr-test-wiki
+      #     ref: 'master'
+      #     token:  ${{ secrets.WIKI_SECRET }}
       - name: Pushes to another repository
         uses: cpina/github-action-push-to-another-repository@main
         env:
