@@ -48,7 +48,7 @@ jobs:
         with:
           source-directory: 'adr-test-wiki'
           destination-github-username: 'irajtech'
-          destination-repository-name: 'adr-test.wiki.git'
+          destination-repository-name: 'adr-test.wiki'
           user-email: iraj
           target-branch: master   
       - name: Gather files changed
