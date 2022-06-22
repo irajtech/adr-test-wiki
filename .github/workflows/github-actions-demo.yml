@@ -43,9 +43,7 @@ jobs:
           git config --local user.name "irajtech"
           git fetch --unshallow origin
           git remote remove origin
-          echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
-          echo 'problem'
           git push --set-upstream https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git --force
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
