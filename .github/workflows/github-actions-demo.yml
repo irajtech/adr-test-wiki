@@ -29,11 +29,11 @@ jobs:
           git branch
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
           xargs -L1 git config --unset-all
-          git config --local user.email "irajtech"
-          git config --local user.name "irajtech"
-          git remote remove origin
           sudo rm -rf .git
           git init
+          git config --local user.email "irajtech"
+          git config --local user.name "irajtech"
+          # git remote remove origin
           echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           echo 'problem'
