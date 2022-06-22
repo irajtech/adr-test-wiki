@@ -35,6 +35,7 @@ jobs:
           echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           echo 'problem'
+          git fetch --unshallow origin
           git push origin master --force
       # - uses: actions/checkout@v2
       #   with:
