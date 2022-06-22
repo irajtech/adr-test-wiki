@@ -29,17 +29,14 @@ jobs:
           git branch
           git config -l | grep 'http\..*\.extraheader' | cut -d= -f1 | \
           xargs -L1 git config --unset-all
-          sudo rm -rf .git
-          git init
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
-          git config --global init.defaultBranch master
-          # git remote remove origin
+          git remote remove origin
           echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           echo 'problem'
           # git fetch --unshallow origin
-          git push origin master --force
+          git push --set-upstream https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
       # - uses: actions/checkout@v2
       #   with:
       #     persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
