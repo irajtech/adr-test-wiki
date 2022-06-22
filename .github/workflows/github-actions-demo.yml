@@ -41,27 +41,16 @@ jobs:
           repository: irajtech/adr-test-wiki
           ref: 'master'
           token:  ${{ secrets.WIKI_SECRET }}
-      - name: setup git config
-        run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "<>"
-          echo 'logs'
-          git log
-          git remote remove origin
-          git remote add origin https://github.com/irajtech/adr-test.wiki.git
-          git remote show origin
-          echo 'logs'
-          git log
-          git add .
-          git commit -m "hello"
-          ls ${{ github.workspace }}
-          git push origin master
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.WIKI_SECRET }}
         with:
-          github_token: ${{ secrets.WIKI_SECRET }}
-          branch: ${{ github.ref }}    
-     
+          source-directory: 'adr-test-wiki'
+          destination-github-username: 'irajtech'
+          destination-repository-name: 'adr-test.wiki.git'
+          user-email: iraj
+          target-branch: master   
       - name: Gather files changed
         uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
         with:
