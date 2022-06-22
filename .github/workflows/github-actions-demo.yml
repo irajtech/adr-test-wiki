@@ -32,10 +32,12 @@ jobs:
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
           git remote remove origin
+          sudo rm -rf .git
+          git init
           echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           echo 'problem'
-          git fetch --unshallow origin
+          # git fetch --unshallow origin
           git push origin master --force
       # - uses: actions/checkout@v2
       #   with:
