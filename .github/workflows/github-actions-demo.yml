@@ -46,7 +46,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.WIKI_SECRET }}
         with:
-          source-directory: 'adr-test-wiki'
+          source-directory: ${{ github.repository }}
           destination-github-username: 'irajtech'
           destination-repository-name: 'adr-test.wiki'
           user-email: iraj
