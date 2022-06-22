@@ -31,11 +31,12 @@ jobs:
           xargs -L1 git config --unset-all
           git config --local user.email "irajtech"
           git config --local user.name "irajtech"
+          git fetch --unshallow origin
           git remote remove origin
           echo "URL : https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git"
           git remote add origin https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git
           echo 'problem'
-          # git fetch --unshallow origin
+          
           git push --set-upstream https://irajtech:${SUPER_SECRET}@github.com/irajtech/adr-test.wiki.git --force
       # - uses: actions/checkout@v2
       #   with:
